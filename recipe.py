@@ -50,11 +50,12 @@ app = Flask(__name__)
 def simplify():
   data = request.get_json()
   url = data['url']
-  print(url)
   markdown = convert(url)
   recipe = extract_recipe(markdown)
 
-  return jsonify(message=recipe)
+  request_data = {"original": markdown,"converted": recipe}
+
+  return jsonify(request_data)
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8000, debug=True)
