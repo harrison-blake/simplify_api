@@ -44,8 +44,6 @@ def extract_recipe(markdown: str) -> str:
 
   return response.choices[0].message.content
 
-#something
-
 app = Flask(__name__)
 
 @app.route('/api/simplify', methods=['POST'])
