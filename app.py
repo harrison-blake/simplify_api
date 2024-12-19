@@ -2,8 +2,13 @@ from flask import Flask, jsonify, request
 import html2text
 import requests
 import constants
+import os
+from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel
+
+load_dotenv()
+API_KEY = os.getenv("OPEN_AI_KEY")
 
 class Recipe(BaseModel):
   recipe_name: str
@@ -20,7 +25,8 @@ def convert(url: str) -> str:
   return h.handle(r.text)
 
 def extract_recipe(markdown: str) -> str:
-  client = OpenAI(api_key=constants.OPENAIKEY)
+  
+  client = OpenAI(api_key=API_KEY)
 
   response = client.beta.chat.completions.parse(
     model="gpt-4o-mini",
