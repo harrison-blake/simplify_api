@@ -7,7 +7,7 @@ from openai import OpenAI
 from pydantic import BaseModel
 
 load_dotenv()
-API_KEY = os.getenv("OPEN_AI_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class Recipe(BaseModel):
   recipe_name: str
@@ -25,7 +25,7 @@ def convert(url: str) -> str:
 
 def extract_recipe(markdown: str) -> str:
   
-  client = OpenAI(api_key=API_KEY)
+  client = OpenAI(api_key=OPENAI_API_KEY)
 
   response = client.beta.chat.completions.parse(
     model="gpt-4o-mini",
