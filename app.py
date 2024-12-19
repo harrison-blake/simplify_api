@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 import html2text
 import requests
-import constants
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
