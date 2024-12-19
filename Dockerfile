@@ -7,4 +7,4 @@ RUN pip3 install -r requirements.txt
 
 COPY . /usr/src/api/
 
-CMD [ "python3", "recipe.py"]
+CMD ["gunicorn", "-c", "gunicorn_config.py", "app:app"]
