@@ -32,7 +32,7 @@ def extract_recipe(markdown: str) -> str:
     messages=[
       {
         "role": "system",
-        "content": "You are given recipe information in markdown format and need to extract the key componenets consisting of the following: recipe name, recipe author, ingredients, and instrcutions"
+        "content": "You are given recipe information in markdown format and need to extract the key componenets consisting of the following: recipe name, recipe author, ingredients, and instructions"
       },
       { 
         "role": "user", 
